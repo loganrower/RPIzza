@@ -27,7 +27,7 @@ def loop():
         key = keypad.getKey()       #obtain the state of keys
         if(key != keypad.NULL):     #if there is key pressed, print its key code.
             print ("You Pressed Key : %c "%(key))
-            lcd.write("hello", row=0)
+            lcd.write("this is a longer message that should scroll", row=0)
             lcd.write(f"you said {key}", row=1)
             sleep(1)
     # Full order number
