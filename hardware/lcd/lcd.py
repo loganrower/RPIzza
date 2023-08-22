@@ -65,26 +65,10 @@ class LCD:
         self.lcd_lock.release()
 
 
-    def stop_scroll(self, row):
-        # stop the thread at scroll_threads[row]
-        pass
-
-
-    def __del__(self):
-        self.lcd_lock.acquire()
-        self.lcd.clear()
-        self.lcd_lock.release()
-
-        for thread_index in range(0, len(self.scroll_threads)):
-            if self.scroll_threads[thread_index] is not None and self.scroll_threads[thread_index].is_alive():
-                self.scroll_threads_terminate[thread_index] = True
-                self.scroll_threads[thread_index].join()
-
-
 def scroll(lcd, lcd_lock, lcd_width, message, row, stop):
     start_pause = 2
     end_pause = 2
-    scroll_speed = 0.5  # seconds per character scroll
+    scroll_speed = 0  # seconds per character scroll
     while True:
         window_start = 0
         window_end = lcd_width
