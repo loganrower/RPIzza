@@ -4,6 +4,7 @@ import time
 from .PCF8574 import PCF8574_GPIO
 from .Adafruit_LCD1602 import Adafruit_CharLCD
 
+
 PCF8574_address = 0x27  # I2C address of the PCF8574 chip.
 PCF8574A_address = 0x3F  # I2C address of the PCF8574A chip.
 
@@ -66,9 +67,9 @@ class LCD:
 
 
 def scroll(lcd, lcd_lock, lcd_width, message, row, stop):
-    start_pause = 2
-    end_pause = 2
-    scroll_speed = 0  # seconds per character scroll
+    start_pause = 2     # seconds before scrolling starts
+    end_pause = 2       # seconds after scrolling starts before looping back to the beginning
+    scroll_speed = 0    # seconds per character scroll
     while True:
         window_start = 0
         window_end = lcd_width

@@ -1,7 +1,8 @@
-# packages for LCD
-from lcd.lcd import LCD
 from time import sleep, strftime
 from datetime import datetime
+
+from lcd.lcd import LCD
+
 
 # packages for Keypad
 import RPi.GPIO as GPIO
@@ -33,9 +34,9 @@ def loop():
     # Full order number
     ## order_number = ""
     ## while star is not pressed then continue to add to the order number
-    ## 
+    ##
     ## lcd.message
-        
+
 def destroy():
     lcd.clear()
     GPIO.cleanup()
