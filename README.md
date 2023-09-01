@@ -24,10 +24,9 @@ graph TD
 
 The default state of RPIzza while it's not in use is a sleep state,
 where a keypress will wake the program and allow for an order to be placed.
-This means the best way to stop the program is to send it a SIGTERM signal
-by finding the pid then using:
+The `kill.sh` script is used to kill a running RPIzza process like so:
 
 ```shell
-kill -SIGTERM <pid>
+bash kill.sh
 ```
 
