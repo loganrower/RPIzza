@@ -10,7 +10,7 @@ sys.path.append("../hardware")
 
 from .state_transition import StateTransition
 from hardware.lcd.lcd import LCD
-from hardware.matrix_keypad.matrix_keypad import MatrixKeypad
+from hardware.matrix_keypad.matrix_keypad import MatrixKeypad, TimeoutError
 
 
 def state_asleep(lcd: LCD, keypad: MatrixKeypad) -> StateTransition:
