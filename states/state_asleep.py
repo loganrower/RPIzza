@@ -14,10 +14,9 @@ from hardware.matrix_keypad.matrix_keypad import MatrixKeypad, TimeoutError
 
 
 def state_asleep(lcd: LCD, keypad: MatrixKeypad) -> StateTransition:
-    lcd.clear()
-
     # turn the lcd off
-    # still need to figure this out
+    lcd.clear()
+    lcd.off()
 
     # if any key is pressed, transition to state_start_order
     try:
