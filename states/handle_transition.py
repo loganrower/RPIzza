@@ -22,6 +22,10 @@ def handle_transition(
     prev_state: StateTransition,
     next_state: StateTransition
 ) -> StateTransition:
+    print(prev_state, end='')
+    print(" -> ", end='')
+    print(next_state)
+
     if next_state == StateTransition.TO_STATE_ASLEEP:
         return state_asleep(lcd, keypad)
     elif next_state == StateTransition.TO_STATE_SLEEP_WARNING:
