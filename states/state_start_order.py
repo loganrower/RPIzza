@@ -14,6 +14,7 @@ from hardware.matrix_keypad.matrix_keypad import MatrixKeypad, TimeoutError
 
 
 def state_start_order(lcd: LCD, keypad: MatrixKeypad) -> StateTransition:
+    lcd.on()
     lcd.clear()
 
     # print welcome message
@@ -31,5 +32,5 @@ def state_start_order(lcd: LCD, keypad: MatrixKeypad) -> StateTransition:
             return StateTransition.TO_STATE_SLEEP_WARNING
 
     # continue to start the order
-    return StateTransition.TO_STATE_UNKNOWN
+    return StateTransition.TO_STATE_SELECT_ORDER
 

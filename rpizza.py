@@ -19,6 +19,7 @@ from states.state_asleep import state_asleep
 
 def sigterm_handler(sig_num, frame):
     lcd.clear()
+    lcd.off()
     GPIO.cleanup()
     sys.exit()
 
