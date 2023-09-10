@@ -30,5 +30,5 @@ def state_confirm_cancel_order(
         except TimeoutError:
             return StateTransition.TO_STATE_ASLEEP
 
-    return StateTransition.TO_STATE_ASLEEP
+    return prev_state
 

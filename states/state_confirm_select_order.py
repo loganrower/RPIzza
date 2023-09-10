@@ -25,8 +25,7 @@ def state_confirm_select_order(lcd: LCD, keypad: MatrixKeypad) -> StateTransitio
             key = keypad.get_key(timeout_seconds=60)
 
             if key == '*':
-                # TODO: return StateTransition.TO_STATE_SELECT_ADDRESS
-                return StateTransition.TO_STATE_UNKNOWN
+                return StateTransition.TO_STATE_SELECT_ADDRESS
 
         except TimeoutError:
             return StateTransition.TO_STATE_SELECT_ORDER

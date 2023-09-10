@@ -16,6 +16,8 @@ from .state_start_order import state_start_order
 from .state_select_order import state_select_order
 from .state_confirm_cancel_order import state_confirm_cancel_order
 from .state_confirm_select_order import state_confirm_select_order
+from .state_select_address import state_select_address
+from .state_confirm_select_address import state_confirm_select_address
 
 
 # function to handle a transition from one state to the next
@@ -41,6 +43,10 @@ def handle_transition(
         return state_confirm_cancel_order(lcd, keypad, prev_state)
     elif next_state == StateTransition.TO_STATE_CONFIRM_SELECT_ORDER:
         return state_confirm_select_order(lcd, keypad)
+    elif next_state == StateTransition.TO_STATE_SELECT_ADDRESS:
+        return state_select_address(lcd, keypad)
+    elif next_state == StateTransition.TO_STATE_CONFIRM_SELECT_ADDRESS:
+        return state_confirm_select_address(lcd, keypad)
     return StateTransition.TO_STATE_UNKNOWN
 
 
