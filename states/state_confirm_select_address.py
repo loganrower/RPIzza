@@ -25,8 +25,7 @@ def state_confirm_select_address(lcd: LCD, keypad: MatrixKeypad) -> StateTransit
             key = keypad.get_key(timeout_seconds=60)
 
             if key == '*':
-                # TODO: return StateTransition.TO_STATE_SELECT_PAYMENT_METHOD
-                return StateTransition.TO_STATE_UNKNOWN
+                return StateTransition.TO_STATE_SELECT_PAYMENT_METHOD
 
         except TimeoutError:
             return StateTransition.TO_STATE_SELECT_ADDRESS
