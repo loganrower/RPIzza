@@ -8,12 +8,16 @@ import sys
 
 sys.path.append("../hardware")
 
+from . import shared_data
+
 from .state_transition import StateTransition
-from hardware.lcd.lcd import LCD
-from hardware.matrix_keypad.matrix_keypad import MatrixKeypad, TimeoutError
+from hardware.matrix_keypad.matrix_keypad import TimeoutError
 
 
-def state_start_order(lcd: LCD, keypad: MatrixKeypad) -> StateTransition:
+def state_start_order() -> StateTransition:
+    lcd = shared_data.lcd
+    keypad = shared_data.keypad
+
     lcd.on()
     lcd.clear()
 

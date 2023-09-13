@@ -8,12 +8,16 @@ import sys
 
 sys.path.append("../hardware")
 
+from . import shared_data
+
 from .state_transition import StateTransition
-from hardware.lcd.lcd import LCD
-from hardware.matrix_keypad.matrix_keypad import MatrixKeypad, TimeoutError
+from hardware.matrix_keypad.matrix_keypad import TimeoutError
 
 
-def state_sleep_warning(lcd: LCD, keypad: MatrixKeypad, prev_state: StateTransition) -> StateTransition:
+def state_sleep_warning(prev_state: StateTransition) -> StateTransition:
+    lcd = shared_data.lcd
+    keypad = shared_data.keypad
+
     # display warning message
     lcd.clear()
     lcd.write(message="WARNING: FALLING ASLEEP", row=0)
@@ -28,4 +32,8 @@ def state_sleep_warning(lcd: LCD, keypad: MatrixKeypad, prev_state: StateTransit
     except TimeoutError:
 
         # fall asleep if no button press
+        # clear data selected earlier
+        shared_data.selected_order = None
+        shared_data.selected_address = None
+        shared_data.selected_payment_method = None
         return StateTransition.TO_STATE_ASLEEP
