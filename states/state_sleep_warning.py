@@ -29,5 +29,3 @@ def state_sleep_warning(lcd: LCD, keypad: MatrixKeypad, prev_state: StateTransit
 
         # fall asleep if no button press
         return StateTransition.TO_STATE_ASLEEP
-
-

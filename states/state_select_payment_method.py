@@ -55,4 +55,3 @@ def state_select_payment_method(lcd: LCD, keypad: MatrixKeypad) -> StateTransiti
         # now we know what payment method to use
         shared_data.selected_payment_method = payment_methods[chars.index(key)]
         return StateTransition.TO_STATE_CONFIRM_SELECT_PAYMENT_METHOD
-

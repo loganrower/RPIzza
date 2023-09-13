@@ -33,4 +33,3 @@ def state_start_order(lcd: LCD, keypad: MatrixKeypad) -> StateTransition:
 
     # continue to start the order
     return StateTransition.TO_STATE_SELECT_ORDER
-

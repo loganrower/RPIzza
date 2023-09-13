@@ -33,4 +33,3 @@ def state_confirm_select_address(lcd: LCD, keypad: MatrixKeypad) -> StateTransit
             return StateTransition.TO_STATE_SELECT_ADDRESS
 
     return StateTransition.TO_STATE_SELECT_ADDRESS
-

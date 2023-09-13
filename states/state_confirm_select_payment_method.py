@@ -34,4 +34,3 @@ def state_confirm_select_payment_method(lcd: LCD, keypad: MatrixKeypad) -> State
             return StateTransition.TO_STATE_SELECT_PAYMENT_METHOD
 
     return StateTransition.TO_STATE_SELECT_PAYMENT_METHOD
-

@@ -33,4 +33,3 @@ def state_confirm_select_order(lcd: LCD, keypad: MatrixKeypad) -> StateTransitio
             return StateTransition.TO_STATE_SELECT_ORDER
 
     return StateTransition.TO_STATE_SELECT_ORDER
-

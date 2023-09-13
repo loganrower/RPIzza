@@ -31,4 +31,3 @@ def state_confirm_cancel_order(
             return StateTransition.TO_STATE_ASLEEP
 
     return prev_state
-
