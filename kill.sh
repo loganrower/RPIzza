@@ -22,5 +22,3 @@ fi
 
 echo "successfully killed RPIzza process"
 exit 0
- 
-

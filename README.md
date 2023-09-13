@@ -29,4 +29,3 @@ The `kill.sh` script is used to kill a running RPIzza process like so:
 ```shell
 bash kill.sh
 ```
-

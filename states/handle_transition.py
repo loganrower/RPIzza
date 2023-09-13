@@ -54,5 +54,3 @@ def handle_transition(
     elif next_state == StateTransition.TO_STATE_CONFIRM_SELECT_PAYMENT_METHOD:
         return state_confirm_select_payment_method(lcd, keypad)
     return StateTransition.TO_STATE_UNKNOWN
-
-

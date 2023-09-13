@@ -25,4 +25,3 @@ def state_asleep(lcd: LCD, keypad: MatrixKeypad) -> StateTransition:
     except TimeoutError:
         return state_asleep(lcd, keypad)
 
-

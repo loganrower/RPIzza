@@ -56,4 +56,3 @@ def state_select_address(lcd: LCD, keypad: MatrixKeypad) -> StateTransition:
         shared_data.selected_address = addresses[chars.index(key)]
         return StateTransition.TO_STATE_CONFIRM_SELECT_ADDRESS
 
-

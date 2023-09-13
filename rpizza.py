@@ -23,7 +23,6 @@ def sigterm_handler(sig_num, frame):
     GPIO.cleanup()
     sys.exit()
 
-
 lcd = LCD()
 keypad = MatrixKeypad()
 
@@ -41,4 +40,3 @@ if __name__ == "__main__":
 
         prev_state = next_state
         next_state = result
-
