@@ -7,7 +7,7 @@ The keypad pins, dimensions, and legends are hard coded into the file and can be
 ## Usage
 
 ```python
-from RPi.GPIO import GPIO
+import RPi.GPIO as GPIO
 from matrix_keypad.matrix_keypad import MatrixKeypad, TimeoutError
 
 

@@ -16,6 +16,9 @@ if __name__ == "__main__":
     # create the lcd object
     lcd = LCD()
 
+    # turn on the display (lcd.write() will do this if it's off)
+    lcd.on()
+
     # write a message to the first row
     # messages longer than the LCD's width will scroll automatically
     lcd.write(message="", row=0)
@@ -29,4 +32,9 @@ if __name__ == "__main__":
     # make sure to ALWAYS clear the display before the program ends
     # failure to do so will result in nondeterministic behavior
     lcd.clear()
+
+    # turn off the display
+    lcd.off()
 ```
+
+Note that making multiple objects with this LCD class and using them both at the same time WILL cause race conditions.

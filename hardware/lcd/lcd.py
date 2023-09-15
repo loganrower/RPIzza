@@ -18,6 +18,7 @@ class LCD:
             self.mcp = PCF8574_GPIO(PCF8574_address)
             self.lcd = Adafruit_CharLCD(pin_rs=0, pin_e=2, pins_db=[4,5,6,7], GPIO=self.mcp)
             self.lcd.begin(LCD_WIDTH, LCD_HEIGHT)
+            self.mcp.output(3, 0)
             self.lcd_lock = Lock()
             self.scroll_threads = []
             self.scroll_threads_terminate = []
@@ -31,6 +32,8 @@ class LCD:
                 raise Exception("LCD not found at expected I2C addresses")
 
 
+    # clear all text from the display
+    # stops the scrolling threads
     def clear(self):
         for thread_index in range(0, len(self.scroll_threads)):
             if self.scroll_threads[thread_index] is not None and self.scroll_threads[thread_index].is_alive():
@@ -41,14 +44,34 @@ class LCD:
         self.lcd_lock.release()
 
 
+    # turn off the display
+    def off(self):
+        self.lcd_lock.acquire()
+        self.mcp.output(3, 0)
+        self.lcd_lock.release()
+
+
+    # turn on the display
+    def on(self):
+        self.lcd_lock.acquire()
+        self.mcp.output(3, 1)
+        self.lcd_lock.release()
+
+
     # row is 0-indexed, default is 0
     def write(self, message, row=0):
-        self.mcp.output(3, 1)
+        self.on()
 
         # kill a scrolling thread if there's already one on this row
         if self.scroll_threads[row] is not None and self.scroll_threads[row].is_alive():
             self.scroll_threads_terminate[row] = True
             self.scroll_threads[row].join()
+
+        # "clear" the existing text from this row
+        self.lcd_lock.acquire()
+        self.lcd.setCursor(0, row)
+        self.lcd.message(' ' * LCD_WIDTH)
+        self.lcd_lock.release()
 
         if len(message) > LCD_WIDTH:
             self.scroll_threads_terminate[row] = False
